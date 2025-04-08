@@ -3,7 +3,7 @@ import React from "react";
 const Banner = () => {
   return (
     <div>
-      <div className="py-10 px-4">
+      <div className="pt-44 sm:pt-32 px-4">
         <div className="container mx-auto h-full hero rounded-lg text-neutral-content text-center bg-cover sm:bg-contain bannerStyle relative">
           {/* Overlay */}
           <div className="absolute inset-0 bg-black opacity-40 rounded-lg"></div>

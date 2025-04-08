@@ -2,7 +2,7 @@ import React from "react";
 
 const Navbar = () => {
   return (
-    <div className="bg-base-100 shadow-sm">
+    <div className="bg-base-100 shadow-sm fixed top-0 left-0 w-full z-50 border-b-2 border-gray-300 navbarBg">
       <div className="navbar container mx-auto p-4 flex flex-col sm:flex-row gap-4 justify-between">
         {/* Logo and title  */}
         <div>

@@ -20,3 +20,14 @@
     ),
     url("./assets/banner.jpg");
 }
+
+.navbarBg {
+  background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.2),
+      rgba(0, 0, 0, 0) 20%
+    ),
+    linear-gradient(to left, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0) 5%),
+    linear-gradient(to right, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0) 5%);
+  backdrop-filter: blur(40px);
+}

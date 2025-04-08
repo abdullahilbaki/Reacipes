@@ -18,7 +18,7 @@ const RecipeList = () => {
   return (
     <>
       <div className="p-4 mt-4">
-        <div className=" container mx-auto grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className=" container mx-auto grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {recipes.map((recipe) => (
             <div key={recipe.id} className="card bg-base-100 shadow-sm">
               <figure>
@@ -79,7 +79,7 @@ const Loading = () => {
 const Recipes = () => {
   return (
     <>
-      <h1 id="recipes" className="mx-auto block text-center mb-4 sm:mb-8 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-shadow-md patrick-hand">
+      <h1 id="recipes" className="pt-40 sm:pt-30 mx-auto block text-center mb-4 sm:mb-8 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-shadow-md patrick-hand">
         Explore reacipes
       </h1>
 
