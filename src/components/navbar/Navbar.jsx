@@ -18,7 +18,7 @@ const Navbar = () => {
           </div>
         </div>
 
-        <div className="flex items-center gap-8">
+        <div className="flex items-center sm:gap-4 md:gap-6 lg:gap-8">
           {/* Go to reacipes section  */}
           <a href="#recipes" className="hidden sm:block text-lg font-semibold  hover:underline">
             Recipes
