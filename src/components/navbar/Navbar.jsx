@@ -13,14 +13,19 @@ const Navbar = () => {
                 src="reacipes.png"
                 alt="reacipes icon"
               />
-              <h1 className="font-bold text-2xl permanent-marker">Reacipes</h1>
+              <h1 className="text-3xl md:text-4xl  font-bold text-shadow-md patrick-hand">
+                Reacipes
+              </h1>
             </a>
           </div>
         </div>
 
         <div className="flex items-center sm:gap-4 md:gap-6 lg:gap-8">
           {/* Go to reacipes section  */}
-          <a href="#recipes" className="hidden sm:block text-lg font-semibold  hover:underline">
+          <a
+            href="#recipes"
+            className="hidden sm:block text-lg font-semibold  hover:underline"
+          >
             Recipes
           </a>
 
