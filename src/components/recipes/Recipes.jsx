@@ -1,6 +1,6 @@
 import { faHeart, faTag } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { Suspense, use, useState } from "react";
+import React, { Suspense, use } from "react";
 
 const fetchRecipes = async () => {
   const response = await fetch("https://dummyjson.com/recipes");
@@ -12,23 +12,15 @@ const fetchRecipes = async () => {
 };
 
 const recipePromise = fetchRecipes();
-const RecipeList = () => {
+const RecipeList = ({ favorites, toggleFavorite }) => {
   const recipes = use(recipePromise);
-  const [Favorites, setFavorites] = useState({});
-
-  const toggleFavorite = (recipeId) => {
-    setFavorites((previous) => ({
-      ...previous,
-      [recipeId]: !previous[recipeId],
-    }));
-  };
 
   return (
     <>
       <div className="p-4 mt-4">
         <div className=" container mx-auto grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {recipes.map((recipe) => {
-            const isFavorite = Favorites[recipe.id] || false;
+            const isFavorite = favorites[recipe.id] || false;
             return (
               <div
                 key={recipe.id}
@@ -107,7 +99,7 @@ const Loading = () => {
   );
 };
 
-const Recipes = () => {
+const Recipes = ({ favorites, toggleFavorite }) => {
   return (
     <>
       <h1
@@ -118,7 +110,7 @@ const Recipes = () => {
       </h1>
 
       <Suspense fallback={<Loading />}>
-        <RecipeList />
+        <RecipeList favorites={favorites} toggleFavorite={toggleFavorite} />
       </Suspense>
     </>
   );
