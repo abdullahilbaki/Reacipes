@@ -51,7 +51,7 @@ const RecipeList = ({ favorites, toggleFavorite }) => {
                         {recipe.difficulty}
                       </div>
                     )}
-                    <div className="badge badge-secondary">
+                    <div className="badge badge-ghost">
                       {recipe.cuisine}
                     </div>
                   </div>
@@ -78,7 +78,10 @@ const RecipeList = ({ favorites, toggleFavorite }) => {
                     <FontAwesomeIcon icon={faTag} className="text-lg" />
                     {recipe.tags.length > 0 &&
                       recipe.tags.map((tag) => (
-                        <div key={tag} className="badge badge-outline">
+                        <div
+                          key={tag}
+                          className="badge badge-soft badge-neutral"
+                        >
                           {tag}
                         </div>
                       ))}
