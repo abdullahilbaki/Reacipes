@@ -11,23 +11,9 @@
   font-family: "Patrick Hand", cursive;
 }
 
-.bannerStyle {
-  @apply bg-center bg-no-repeat bg-cover;
-  background-image: linear-gradient(
-      180deg,
-      rgb(17, 17, 17, 0),
-      rgb(17, 17, 17) 100%
-    ),
-    url("./assets/banner.jpg");
-}
-
 .navbarBg {
-  background: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.2),
-      rgba(0, 0, 0, 0) 20%
-    ),
-    linear-gradient(to left, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0) 5%),
-    linear-gradient(to right, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0) 5%);
+  background: linear-gradient(to bottom, rgb(0, 0, 0, 0.2), rgb(0, 0, 0, 0) 20%),
+    linear-gradient(to left, rgb(0, 0, 0, 0.2), rgb(0, 0, 0, 0) 5%),
+    linear-gradient(to right, rgb(0, 0, 0, 0.2), rgb(0, 0, 0, 0) 5%);
   backdrop-filter: blur(40px);
 }

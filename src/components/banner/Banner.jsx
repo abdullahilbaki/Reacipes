@@ -1,10 +1,14 @@
 import React from "react";
+import bannerBackground from "../../assets/banner.jpg";
 
 const Banner = () => {
   return (
     <div>
       <div className="pt-44 sm:pt-32 px-4">
-        <div className="container mx-auto h-full hero rounded-lg text-neutral-content text-center bg-cover sm:bg-contain bannerStyle relative">
+        <div
+          className="container mx-auto h-full hero rounded-lg text-neutral-content text-center bg-cover bg-center bg-no-repeat relative"
+          style={{ backgroundImage: `url(${bannerBackground})` }}
+        >
           {/* Overlay */}
           <div className="absolute inset-0 bg-black opacity-40 rounded-lg"></div>
           <div className="hero-content px-4 py-16 sm:py-20 md:py-28 lg:py-32 relative z-10">
@@ -12,7 +16,7 @@ const Banner = () => {
               <h1 className="mb-4 sm:mb-8 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold  text-white text-shadow-md patrick-hand">
                 Fresh Flavors, Happy Plates!{" "}
               </h1>
-              <p className="mb-6 poppins text-gray-300 text-sm sm:text-base">
+              <p className="mb-6 poppins text-white text-sm sm:text-base text-shadow-md">
                 Quick, tasty recipes to brighten your day and bring smiles to
                 the table.
               </p>
