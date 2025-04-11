@@ -1,8 +1,8 @@
 import React from "react";
 import Favorites from "./Favorites";
 
-const Navbar = ({ favorites }) => {
-  const favoriteCount = Object.values(favorites).filter(Boolean).length;
+const Navbar = ({ onViewFavorites, isViewFavClicked, favoriteCount }) => {
+  console.log(favoriteCount);
   return (
     <div className="bg-base-100 shadow-sm fixed top-0 left-0 w-full z-50 border-b-2 border-gray-300 navbarBg">
       <div className="navbar container mx-auto p-4 flex flex-col sm:flex-row gap-4 justify-between">
@@ -23,6 +23,8 @@ const Navbar = ({ favorites }) => {
           {/* Favorites for small devices*/}
           <Favorites
             favoriteCount={favoriteCount}
+            onViewFavorites={onViewFavorites}
+            isViewFavClicked={isViewFavClicked}
             className="block sm:hidden dropdown-end"
           />{" "}
         </div>
@@ -39,6 +41,8 @@ const Navbar = ({ favorites }) => {
           {/* Favorites for big devices*/}
           <Favorites
             favoriteCount={favoriteCount}
+            onViewFavorites={onViewFavorites}
+            isViewFavClicked={isViewFavClicked}
             className="hidden sm:block dropdown-start"
           />
 

@@ -1,4 +1,9 @@
-const Favorites = ({ className = "", favoriteCount }) => {
+const Favorites = ({
+  className = "",
+  favoriteCount,
+  onViewFavorites,
+  isViewFavClicked,
+}) => {
   return (
     <>
       <div className={`${className} dropdown`}>
@@ -36,9 +41,12 @@ const Favorites = ({ className = "", favoriteCount }) => {
                   {favoriteCount} Recipes
                 </span>
                 <div className="card-actions">
-                  <button className="btn btn-primary btn-block">
-                    View favorites
-                  </button>
+                  <a href="#recipes"
+                    className="btn btn-primary btn-block"
+                    onClick={onViewFavorites}
+                  >
+                    {isViewFavClicked ? "All recipes" : "View favorites"}
+                  </a>
                 </div>
               </>
             ) : (

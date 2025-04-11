@@ -7,18 +7,30 @@ const Loading = () => {
   );
 };
 
-const Recipes = ({ favorites, toggleFavorite }) => {
+const Recipes = ({
+  favorites,
+  toggleFavorite,
+  isViewFavClicked,
+  favoriteCount,
+}) => {
   return (
     <>
       <h1
         id="recipes"
         className="pt-40 sm:pt-30 mx-auto block text-center mb-4 sm:mb-8 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-shadow-md patrick-hand"
       >
-        Explore recipes
+        {isViewFavClicked && favoriteCount
+          ? "Your favorite recipes"
+          : "Explore recipes"}
       </h1>
 
       <Suspense fallback={<Loading />}>
-        <RecipeList favorites={favorites} toggleFavorite={toggleFavorite} />
+        <RecipeList
+          favorites={favorites}
+          isViewFavClicked={isViewFavClicked}
+          toggleFavorite={toggleFavorite}
+          favoriteCount={favoriteCount}
+        />
       </Suspense>
     </>
   );
