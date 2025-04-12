@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { useState } from "react";
 
 const RecipeDetails = ({ recipe, modalRef }) => {
   const [showIngredients, setShowIngredients] = useState(true);
@@ -36,12 +36,12 @@ const RecipeDetails = ({ recipe, modalRef }) => {
           </span>
         </h3>{" "}
         {showIngredients && (
-          <div className="flex flex-wrap gap-x-2">
+          <div>
             {recipe.ingredients.map((item, index) => (
-              <Fragment key={index}>
-                <p>{item}</p>
-                <p>|</p>
-              </Fragment>
+              <span key={index}>
+                {item}
+                {index < recipe.ingredients.length - 1 && <span className="px-1"> &#8226; </span>}
+              </span>
             ))}
           </div>
         )}
