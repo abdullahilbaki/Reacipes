@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { IoIosArrowDown } from "react-icons/io";
 
 const RecipeDetails = ({ recipe, modalRef }) => {
   const [showIngredients, setShowIngredients] = useState(true);
@@ -26,13 +27,17 @@ const RecipeDetails = ({ recipe, modalRef }) => {
             className="rounded-lg h-40 object-cover"
           />
         </div>
-        <h3 className="mt-4 font-bold text-lg mb-3">
-          📝{" "}
+        <h3
+          className="mt-4 font-bold text-lg mb-3 flex items-center cursor-pointer"
+          onClick={() => setShowIngredients(!showIngredients)}
+        >
+          📝 <span className="hover:underline">Ingredients </span>
           <span
-            className="cursor-pointer hover:underline"
-            onClick={() => setShowIngredients(!showIngredients)}
+            className={`transition-transform duration-300 ${
+              showIngredients ? "rotate-0" : "rotate-[-90deg]"
+            }`}
           >
-            Ingredients
+            <IoIosArrowDown />
           </span>
         </h3>{" "}
         {showIngredients && (
@@ -40,18 +45,24 @@ const RecipeDetails = ({ recipe, modalRef }) => {
             {recipe.ingredients.map((item, index) => (
               <span key={index}>
                 {item}
-                {index < recipe.ingredients.length - 1 && <span className="px-1"> &#8226; </span>}
+                {index < recipe.ingredients.length - 1 && (
+                  <span className="px-1"> &#8226; </span>
+                )}
               </span>
             ))}
           </div>
         )}
-        <h3 className="mt-4 font-bold text-lg mb-3">
-          👨‍🍳{" "}
+        <h3
+          className="mt-4 font-bold text-lg mb-3 flex items-center cursor-pointer "
+          onClick={() => setShowInstructions(!showInstructions)}
+        >
+          👨‍🍳 <span className="hover:underline">Instructions</span>
           <span
-            className="cursor-pointer hover:underline"
-            onClick={() => setShowInstructions(!showInstructions)}
+            className={`transition-transform duration-300 ${
+              showInstructions ? "rotate-0" : "rotate-[-90deg]"
+            }`}
           >
-            Instructions
+            <IoIosArrowDown />
           </span>
         </h3>{" "}
         {showInstructions && (
