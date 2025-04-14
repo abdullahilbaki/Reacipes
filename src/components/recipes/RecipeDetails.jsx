@@ -4,6 +4,7 @@ import { IoIosArrowDown } from "react-icons/io";
 const RecipeDetails = ({ recipe, modalRef }) => {
   const [showIngredients, setShowIngredients] = useState(true);
   const [showInstructions, setShowInstructions] = useState(false);
+  const recipeQueryStr = recipe.name.split(" ").join("+");
 
   return (
     <dialog ref={modalRef} id="my_modal_2" className="modal">
@@ -21,11 +22,17 @@ const RecipeDetails = ({ recipe, modalRef }) => {
             <p>🍽️ Servings: {recipe.servings} people</p>
             <p>⚡ Calories: {recipe.caloriesPerServing} kcal per serving</p>
           </div>
-          <img
-            src={recipe.image}
-            alt={recipe.name}
-            className="rounded-lg h-40 object-cover"
-          />
+          <a
+            href={`https://www.youtube.com/results?search_query=${recipeQueryStr}`}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img
+              src={recipe.image}
+              alt={recipe.name}
+              className="rounded-lg h-40 object-cover"
+            />
+          </a>
         </div>
         <h3
           className="mt-4 font-bold text-lg mb-3 flex items-center cursor-pointer"
