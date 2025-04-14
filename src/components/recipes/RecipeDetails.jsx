@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { FaYoutube } from "react-icons/fa";
 import { IoIosArrowDown } from "react-icons/io";
 
 const RecipeDetails = ({ recipe, modalRef }) => {
@@ -26,12 +27,18 @@ const RecipeDetails = ({ recipe, modalRef }) => {
             href={`https://www.youtube.com/results?search_query=${recipeQueryStr}`}
             target="_blank"
             rel="noopener noreferrer"
+            className="block sm:inline-block w-full sm:w-auto outline-none"
           >
-            <img
-              src={recipe.image}
-              alt={recipe.name}
-              className="rounded-lg h-40 object-cover"
-            />
+            <div className="relative h-40">
+              <img
+                src={recipe.image}
+                alt={recipe.name}
+                className="rounded-lg object-cover w-full h-full"
+              />
+              <div className="absolute inset-0 rounded-lg bg-black/40 "></div>
+
+              <FaYoutube className="absolute bottom-3 right-3 text-3xl text-red-600 hover:text-gray-500 drop-shadow-lg" />
+            </div>
           </a>
         </div>
         <h3
