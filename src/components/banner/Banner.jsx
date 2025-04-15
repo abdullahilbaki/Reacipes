@@ -17,7 +17,7 @@ const Banner = () => {
         >
           {/* Overlay */}
           <div className="absolute inset-0 bg-black opacity-70 rounded-lg"></div>
-          <div className="hero-content px-4 py-16 sm:py-20 md:py-28 lg:py-32 relative z-10">
+          <div className="hero-content px-4 py-32 md:py-36 lg:py-40 relative z-10">
             <div className="w-full max-w-[90%] sm:max-w-[80%] lg:max-w-[60%] mx-auto">
               <h1
                 className="mb-4 sm:mb-8 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold  text-white patrick-hand"
