@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useRef } from "react";
 import RecipeDetails from "./RecipeDetails";
 import Rating from "./Rating";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const RecipeCard = ({ recipe, toggleFavorite, isFavorite, className = "" }) => {
   const modalRef = useRef(null);
@@ -20,10 +21,12 @@ const RecipeCard = ({ recipe, toggleFavorite, isFavorite, className = "" }) => {
         onClick={handleCardClick}
       >
         <figure className="relative">
-          <img
+          <LazyLoadImage
             src={recipe.image}
             alt={recipe.name}
-            className="transition-transform duration-300 transform hover:scale-105 focus:scale-105"
+            width="100%"
+            className="visible transition-transform duration-300 transform hover:scale-105 focus:scale-105"
+            wrapperClassName="w-full"
           />
           <FontAwesomeIcon
             onClick={(e) => {
