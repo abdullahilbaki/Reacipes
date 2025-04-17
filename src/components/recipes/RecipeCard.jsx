@@ -1,12 +1,13 @@
 import { faHeart, faTag } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import RecipeDetails from "./RecipeDetails";
 import Rating from "./Rating";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const RecipeCard = ({ recipe, toggleFavorite, isFavorite, className = "" }) => {
   const modalRef = useRef(null);
+  const [loaded, setLoaded] = useState(false);
 
   const handleCardClick = () => {
     if (modalRef.current) {
@@ -27,8 +28,12 @@ const RecipeCard = ({ recipe, toggleFavorite, isFavorite, className = "" }) => {
             loading="lazy"
             width="100%"
             height={300}
-            className="transition-transform duration-300 transform hover:scale-105 focus:scale-105"
+            onLoad={() => setLoaded(true)}
+            className={`transition-all duration-500 transform hover:scale-105 focus:scale-105 ${
+              loaded ? "blur-0" : "blur-md"
+            }`}
             wrapperClassName="w-full"
+            effect="opacity"
           />
           <FontAwesomeIcon
             onClick={(e) => {
