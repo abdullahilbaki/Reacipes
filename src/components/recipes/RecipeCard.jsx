@@ -24,6 +24,7 @@ const RecipeCard = ({ recipe, toggleFavorite, isFavorite, className = "" }) => {
           <LazyLoadImage
             src={recipe.image}
             alt={recipe.name}
+            loading="lazy"
             width="100%"
             height={300}
             className="transition-transform duration-300 transform hover:scale-105 focus:scale-105"

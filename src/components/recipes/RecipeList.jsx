@@ -1,17 +1,23 @@
 import React, { use } from "react";
 import RecipeCard from "./RecipeCard";
+import axios from "axios";
 
 const fetchRecipes = async () => {
-  const response = await fetch("https://dummyjson.com/recipes");
-  if (!response.ok) {
-    throw new Error("Failed to fetch recipes.");
+  try {
+    const response = await axios.get("https://dummyjson.com/recipes");
+    return response.data.recipes;
+  } catch (error) {
+    console.error(error);
   }
-  const data = await response.json();
-  return data.recipes;
 };
 
 const recipePromise = fetchRecipes();
-const RecipeList = ({ favorites, toggleFavorite, isViewFavClicked, favoriteCount }) => {
+const RecipeList = ({
+  favorites,
+  toggleFavorite,
+  isViewFavClicked,
+  favoriteCount,
+}) => {
   const recipes = use(recipePromise);
 
   return (
@@ -22,7 +28,7 @@ const RecipeList = ({ favorites, toggleFavorite, isViewFavClicked, favoriteCount
             const isFavorite = favorites[recipe.id] || false;
             return (
               <React.Fragment key={recipe.id}>
-                {(isViewFavClicked && favoriteCount) ? (
+                {isViewFavClicked && favoriteCount ? (
                   <RecipeCard
                     toggleFavorite={toggleFavorite}
                     isFavorite={isFavorite}
