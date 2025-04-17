@@ -5,9 +5,17 @@ import Recipes from "./components/recipes/Recipes";
 import Footer from "./components/footer/Footer";
 
 function App() {
-  const [favorites, setFavorites] = useState({});
+  const [favorites, setFavorites] = useState(() => {
+    const storedFavorites = localStorage.getItem("favorites");
+    return storedFavorites ? JSON.parse(storedFavorites) : {};
+  });
+
   const [isViewFavClicked, setIsViewFavClicked] = useState(false);
   const favoriteCount = Object.values(favorites).filter(Boolean).length;
+
+  useEffect(() => {
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+  }, [favorites]);
 
   useEffect(() => {
     if (favoriteCount === 0) {
@@ -20,9 +28,9 @@ function App() {
   };
 
   const toggleFavorite = (recipeId) => {
-    setFavorites((previous) => ({
-      ...previous,
-      [recipeId]: !previous[recipeId],
+    setFavorites((prevFavorites) => ({
+      ...prevFavorites,
+      [recipeId]: !prevFavorites[recipeId],
     }));
   };
 
