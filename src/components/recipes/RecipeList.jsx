@@ -17,7 +17,7 @@ const RecipeList = ({ favorites, toggleFavorite, isViewFavClicked, favoriteCount
   return (
     <>
       <div className="p-4 mt-4">
-        <div className=" container mx-auto grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="container mx-auto grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {recipes.map((recipe) => {
             const isFavorite = favorites[recipe.id] || false;
             return (

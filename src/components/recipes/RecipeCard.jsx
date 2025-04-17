@@ -25,7 +25,8 @@ const RecipeCard = ({ recipe, toggleFavorite, isFavorite, className = "" }) => {
             src={recipe.image}
             alt={recipe.name}
             width="100%"
-            className="visible transition-transform duration-300 transform hover:scale-105 focus:scale-105"
+            height={300}
+            className="transition-transform duration-300 transform hover:scale-105 focus:scale-105"
             wrapperClassName="w-full"
           />
           <FontAwesomeIcon
@@ -39,7 +40,7 @@ const RecipeCard = ({ recipe, toggleFavorite, isFavorite, className = "" }) => {
             } absolute text-3xl top-[5%] right-[5%] transition-transform duration-300 transform hover:scale-125 active:scale-110 drop-shadow-lg`}
           />
         </figure>
-        <div className="card-body flex ">
+        <div className="card-body flex">
           <div className="flex items-center gap-2">
             {recipe.difficulty === "Easy" ? (
               <div className="badge badge-soft badge-info">
