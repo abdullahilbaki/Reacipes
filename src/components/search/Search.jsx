@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 const Search = () => {
   const [searchStr, setSearchStr] = useState("");
@@ -9,13 +9,30 @@ const Search = () => {
   };
   const handleFocus = () => {
     window.location.hash = "#recipes";
-  };
-
-  const handleLabelClick = () => {
     inputRef.current?.focus();
   };
+
+  useEffect(() => {
+    const keyDownHandler = (event) => {
+      if ((event.ctrlKey || event.metaKey) && event.key === "k") {
+        event.preventDefault();
+        inputRef.current?.focus();
+      }
+
+      if (event.key === "Escape") {
+        setSearchStr("");
+        inputRef.current?.blur();
+      }
+    };
+
+    window.addEventListener("keydown", keyDownHandler);
+    return () => {
+      window.removeEventListener("keydown", keyDownHandler);
+    };
+  }, []);
+
   return (
-    <label className="input w-auto" onClick={handleLabelClick}>
+    <label className="input w-auto" htmlFor="recipe-search">
       <svg
         className="h-[1em] opacity-50"
         xmlns="http://www.w3.org/2000/svg"
@@ -33,8 +50,9 @@ const Search = () => {
         </g>
       </svg>
       <input
+        id="recipe-search"
         ref={inputRef}
-        type="search"
+        type="text"
         className="grow"
         value={searchStr}
         onChange={handleSearchOnChange}
