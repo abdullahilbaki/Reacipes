@@ -1,6 +1,5 @@
 import React from "react";
 import Favorites from "./Favorites";
-import Search from "../search/Search";
 
 const Navbar = ({ onViewFavorites, isViewFavClicked, favoriteCount }) => {
   return (
@@ -15,7 +14,7 @@ const Navbar = ({ onViewFavorites, isViewFavClicked, favoriteCount }) => {
                 src="reacipes.png"
                 alt="reacipes icon"
               />
-              <h1 className="text-3xl md:text-4xl  font-bold text-shadow-md patrick-hand">
+              <h1 className="text-3xl md:text-4xl font-bold text-shadow-md patrick-hand">
                 Reacipes
               </h1>
             </a>
@@ -43,11 +42,10 @@ const Navbar = ({ onViewFavorites, isViewFavClicked, favoriteCount }) => {
             favoriteCount={favoriteCount}
             onViewFavorites={onViewFavorites}
             isViewFavClicked={isViewFavClicked}
-            className="hidden sm:block dropdown-start"
+            className="hidden sm:block dropdown-end"
           />
 
-          {/* Search box */}
-          <Search />
+          
         </div>
       </div>
     </div>
