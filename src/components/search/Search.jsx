@@ -8,7 +8,9 @@ const Search = () => {
     setSearchStr(e.target.value);
   };
   const handleFocus = () => {
-    window.location.hash = "#recipes";
+    if (window.location.hash !== "#recipes") {
+      window.location.hash = "#recipes";
+    }
     inputRef.current?.focus();
   };
 
@@ -32,7 +34,11 @@ const Search = () => {
   }, []);
 
   return (
-    <label className="input w-auto" htmlFor="recipe-search">
+    <label
+      className="input w-auto"
+      htmlFor="recipe-search"
+      onFocus={handleFocus}
+    >
       <svg
         className="h-[1em] opacity-50"
         xmlns="http://www.w3.org/2000/svg"
@@ -56,7 +62,6 @@ const Search = () => {
         className="grow"
         value={searchStr}
         onChange={handleSearchOnChange}
-        onFocus={handleFocus}
         placeholder="Search for a recipe"
       />
       <kbd className="kbd kbd-sm">⌘</kbd>
